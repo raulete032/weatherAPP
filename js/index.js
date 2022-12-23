@@ -1,4 +1,14 @@
 
+setInterval(()=>{
+    let today= new Date();
+    document.getElementById('localDate').innerHTML=today.toLocaleString();
+}, 1000);
+
+
+
+limpia();
+
+
 
 llamadaAPI({peticion: 'provincias'})
     .then(function(data){
@@ -8,8 +18,13 @@ llamadaAPI({peticion: 'provincias'})
     });
 
 
-function municipiosPorProvincia(){
 
+
+/**
+ * Función que hace la llamada a la API para pedir los municipios de la provincia elegida
+ */
+function municipiosPorProvincia(){
+    limpia();
     //Obtengo el código de la privincia
     let codProv= this.selectedOptions[0].value;
 
@@ -21,7 +36,56 @@ function municipiosPorProvincia(){
             vaciaSelect('selectMunicipio')
             rellenaSelect('selectMunicipio', municipios, 'NOMBRE', 'CODIGOINE');
         })
+}
 
 
+
+function datosMunicipio(){
+    limpia();
+    let codProv= document.getElementById('selectProvincia').selectedOptions[0].value;
+    let codMun= this.selectedOptions[0].value;
+    codMun= codMun.substring(0,5);
+
+    llamadaAPI({peticion: 'provincias/'+codProv+'/municipios/'+codMun})
+        .then(function(data){
+            let datos= data.datos;
+            sessionStorage.setItem('datosMeteo', JSON.stringify(datos));
+            muestraDatos();
+        })
+}
+
+
+function muestraDatos(){
+
+    let datos= JSON.parse(sessionStorage.getItem('datosMeteo'));
+
+    //Actual
+    document.getElementById('mainTempHot').innerHTML= datos.temperaturas.max + '&#176;';
+    document.getElementById('mainTempLow').innerHTML= datos.temperaturas.min + '&#176;';
+    document.getElementById('humidity').innerHTML= datos.humedad + '%';
+    document.getElementById('celcius').innerHTML= datos.temperatura_actual + '&#176;C';
+    document.getElementById('farenheit').innerHTML= gradosAFarenheit(datos.temperatura_actual) + '&#176;F';
+    document.getElementById('wind').innerHTML= datos.viento + " m/s";
+
+    //Mañana
+
+
+
+
+    //Pasado
+
+
+
+    //Dentro de 3 días
+
+
+
+
+
+    //Dentro de 4 días
 
 }
+
+
+
+

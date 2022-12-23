@@ -65,3 +65,49 @@ function vaciaSelect(idSelect){
     while(select.options.length!=1 && select.options.length!=0)
         select.options[1].remove();
 }
+
+
+/**
+ * Función que devuelve la hora actual en formato hh:mm:ss
+ * @param {*} objDate -> Un objeto tipo Date
+ * @returns -> String con la hora hh:mm:ss
+ */
+function createTimeString(objDate){
+    var h= objDate.getHours();
+    var m= objDate.getMinutes();
+    var s= objDate.getSeconds();
+
+    if(h<=9)
+        h="0"+h;
+    if(m<=9)
+        m="0"+m;
+    if(s<=9)
+        s="0"+s;
+    
+    return h+":"+m+":"+s;
+}
+
+/**
+ * Función que pasa los grados a grados Farenheit
+ * @param {*} grados 
+ * @returns 
+ */
+function gradosAFarenheit(grados){
+
+    return (grados * 9/5) + 32;
+}
+
+
+/**
+ * Función que limpia los datos que se muestran
+ */
+function limpia(){
+
+    document.getElementById('mainTempHot').innerHTML= '';
+    document.getElementById('mainTempLow').innerHTML= '';
+    document.getElementById('humidity').innerHTML= '';
+    document.getElementById('celcius').innerHTML= '';
+    document.getElementById('farenheit').innerHTML= '';
+    document.getElementById('wind').innerHTML= '';
+
+}
