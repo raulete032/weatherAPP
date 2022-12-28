@@ -21,10 +21,8 @@ llamadaAPI({peticion: 'provincias'})
 
 
 function info(data){
-
     let pInfo= document.getElementById('info');
     pInfo.innerHTML= data.datos.origen.copyright + "<br>" + data.datos.origen.productor;
-
 }
 
 
