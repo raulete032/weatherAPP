@@ -15,9 +15,17 @@ llamadaAPI({peticion: 'provincias'})
         let provincias= data.datos.provincias;
         provincias= ordenaArrayObjetos('ASC', provincias, 'NOMBRE_PROVINCIA');
         rellenaSelect('selectProvincia', provincias, 'NOMBRE_PROVINCIA', 'CODPROV');
+        info(data);
     });
 
 
+
+function info(data){
+
+    let pInfo= document.getElementById('info');
+    pInfo.innerHTML= data.datos.origen.copyright + "<br>" + data.datos.origen.productor;
+
+}
 
 
 /**
@@ -67,39 +75,47 @@ function muestraDatos(){
     document.getElementById('farenheit').innerHTML= gradosAFarenheit(datos.temperatura_actual) + '&#176;F';
     document.getElementById('wind').innerHTML= datos.viento + " m/s";
 
-    //Mañana
+    //Mañana (day-1)
     let mañana= datos.proximos_dias[0];
     let fecha= datos.proximos_dias[0]["@attributes"].fecha;
     let date= new Date(fecha);
     let dia= date.getDay();   
 
     document.getElementById('forecast-day-1-name').innerHTML= diaSemana(dia);
+    document.getElementById('forecast-day-1-ht').innerHTML= mañana.temperatura.maxima + '&#176;C';
+    document.getElementById('forecast-day-1-lt').innerHTML= mañana.temperatura.minima + '&#176;C';
 
-    //Pasado
+    //Pasado (day-2)
     let pasado= datos.proximos_dias[1];
     fecha= datos.proximos_dias[1]["@attributes"].fecha;
     date= new Date(fecha);
     dia= date.getDay();   
 
     document.getElementById('forecast-day-2-name').innerHTML= diaSemana(dia);
+    document.getElementById('forecast-day-2-ht').innerHTML= pasado.temperatura.maxima + '&#176;C';
+    document.getElementById('forecast-day-2-lt').innerHTML= pasado.temperatura.minima + '&#176;C';
 
 
-    //Dentro de 3 días
+    //Dentro de 3 días (day-3)
     let dentro3Dias= datos.proximos_dias[2];
     fecha= datos.proximos_dias[2]["@attributes"].fecha;
     date= new Date(fecha);
     dia= date.getDay();   
 
     document.getElementById('forecast-day-3-name').innerHTML= diaSemana(dia);
+    document.getElementById('forecast-day-3-ht').innerHTML= dentro3Dias.temperatura.maxima + '&#176;C';
+    document.getElementById('forecast-day-3-lt').innerHTML= dentro3Dias.temperatura.minima + '&#176;C';
 
 
-    //Dentro de 4 días
+    //Dentro de 4 días (day-4)
     let dentro4Dias= datos.proximos_dias[3];
     fecha= datos.proximos_dias[3]["@attributes"].fecha;
     date= new Date(fecha);
     dia= date.getDay();   
 
     document.getElementById('forecast-day-4-name').innerHTML= diaSemana(dia);
+    document.getElementById('forecast-day-4-ht').innerHTML= dentro4Dias.temperatura.maxima + '&#176;C';
+    document.getElementById('forecast-day-4-lt').innerHTML= dentro4Dias.temperatura.minima + '&#176;C';
 }
 
 

@@ -2,3 +2,8 @@
 #selectProvincia, #selectMunicipio{
     width: fit-content;
 }
+
+#info{
+    font-size: 10px;
+    font-style: italic;
+}
