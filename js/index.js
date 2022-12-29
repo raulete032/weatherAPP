@@ -33,6 +33,9 @@ function municipiosPorProvincia(){
     //Obtengo el código de la privincia
     let codProv= this.selectedOptions[0].value;
 
+    if(codProv==0)
+        vaciaSelect('selectMunicipio');
+
     llamadaAPI({peticion: 'provincias/'+ codProv+'/municipios'})
         .then(function(data){
             let municipios= data.datos.municipios;

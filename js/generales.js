@@ -110,5 +110,11 @@ function limpia(){
     document.getElementById('farenheit').innerHTML= '';
     document.getElementById('wind').innerHTML= '';
     document.getElementById('temperaturaActual').style.visibility='hidden';
+    
+    for(let i=1;i<5;i++){
+        document.getElementById('forecast-day-'+i+'-ht').innerHTML='';
+        document.getElementById('forecast-day-'+i+'-lt').innerHTML='';
+    }
+    
 
 }
