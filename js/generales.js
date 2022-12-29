@@ -109,5 +109,6 @@ function limpia(){
     document.getElementById('celcius').innerHTML= '';
     document.getElementById('farenheit').innerHTML= '';
     document.getElementById('wind').innerHTML= '';
+    document.getElementById('temperaturaActual').style.visibility='hidden';
 
 }

@@ -1,4 +1,3 @@
-
 setInterval(()=>{
     let today= new Date();
     document.getElementById('localDate').innerHTML=today.toLocaleString();
@@ -72,6 +71,8 @@ function muestraDatos(){
     document.getElementById('celcius').innerHTML= datos.temperatura_actual + '&#176;C';
     document.getElementById('farenheit').innerHTML= gradosAFarenheit(datos.temperatura_actual) + '&#176;F';
     document.getElementById('wind').innerHTML= datos.viento + " m/s";
+    document.getElementById('temperaturaActual').style.visibility="visible";
+
 
     //Mañana (day-1)
     let mañana= datos.proximos_dias[0];

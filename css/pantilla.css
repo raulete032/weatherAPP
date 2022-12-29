@@ -3,19 +3,7 @@ a {
     opacity: 0.6;
     text-decoration: none;
   }
-  
-  a:hover, a:active, a:focus{
-    color: white;
-    text-decoration: none;
-    opacity: 1;
-  }
-  
-  .active {
-    color: white;
-    text-decoration: none;
-    opacity: 1;
-  }
-  
+   
   body{
     background-color: #F4F6F7;
   }

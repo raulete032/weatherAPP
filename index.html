@@ -47,12 +47,12 @@
             <!-- Center panel -->
             <div class="col-md-5 col-sm-7" style="margin: 10px auto;padding:0;">
               <div class="row">
-                <i class="wi" id ="main-icon" style="font-size: 85px;"></i>
+                <i id="main-icon" class="wi " style="font-size: 85px;"></i>
                 <div>
                   <spam id="mainTemperature"></spam>
                   <p id="tempDescription"></p>
                 </div>
-                <p style="font-size: 1.5rem;"><a href="#" class="active" id="celcius">°C</a> | <a href="#" id="farenheit"></a></p>
+                <p id="temperaturaActual"  style="font-size: 1.5rem; visibility:hidden;"><a id="celcius">°C</a> | <a id="farenheit"></a></p>
               </div>
             </div>
             
@@ -170,15 +170,14 @@
 
 
         <div id="divInfo" class="row">
-          <p id="info"></p>
-
+          <p id="info"></p>          
         </div>
       </div>
 
 
 
     <script src="./js/api.js"></script>
-    <script src="./js/generales.js"></script>    
+    <script src="./js/generales.js"></script> 
     <script src="./js/index.js"></script>
     <script src="./js/addEvents.js"></script>
     
